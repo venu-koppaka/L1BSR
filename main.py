@@ -61,22 +61,46 @@ def main(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("input", type=str)
-    parser.add_argument("output", type=str)
-    parser.add_argument("--device", type=str, default="cpu")
-    parser.add_argument(
-        "--task",
-        type=str,
-        default="superresolution",
-        choices=["superresolution", "registration"],
-    )
-
-    args = parser.parse_args()
+     # Directly set the input and output arguments here
+    input_path = "/Users/venugopalaraokoppaka/Desktop/Satellite_data/Sentinel-super resolution/Sentinel-2-super-resolution/sentinel-2-1C-bands2348-clip2.tif"
+    output_path = "/Users/venugopalaraokoppaka/Desktop/Satellite_data/Sentinel-super resolution/Sentinel-2-super-resolution/sentinel-2-1C-bands2348-clip2-super.tif"
+    device = "cpu"
+    task = "superresolution"  # or "registration"
     main(
-        args.input,
-        args.output,
-        args.device,
-        args.task == "registration",
-        args.task == "superresolution",
+        input=input_path,
+        output=output_path,
+        device=device,
+        registration=(task == "registration"),
+        superresolution=(task == "superresolution"),
     )
+# original code replaced with above
+
+    #parser = argparse.ArgumentParser()
+    #parser.add_argument("input", type=str)
+    #parser.add_argument("output", type=str)
+    #parser.add_argument("--device", type=str, default="cpu")
+    #parser.add_argument(
+     #   "--task",
+      #  type=str,
+       # default="superresolution",
+        #choices=["superresolution", "registration"],
+   # parser = argparse.ArgumentParser()
+    #parser.add_argument("input", type=str)
+    #parser.add_argument("output", type=str)
+    #parser.add_argument("--device", type=str, default="cpu")
+    #parser.add_argument(
+     #   "--task",
+     #   type=str,
+     #   default="superresolution",
+      #  choices=["superresolution", "registration"],
+   # )
+
+    #args = parser.parse_args()
+    #main(
+      #  args.input,
+       # args.output,
+       # args.device,
+       # args.task == "registration",
+       # args.task == "superresolution",
+    #)
+# end of original code
